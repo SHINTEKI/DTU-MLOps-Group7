@@ -20,7 +20,7 @@ class ResNeSt(LightningModule):
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         return self.model(x)
-
+ 
     @torch.jit.ignore
     def training_step(
         self, batch: List[torch.Tensor], batch_idx: int

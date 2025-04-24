@@ -1,0 +1,150 @@
+<p>DTU 02476 - MLOps courses in January 2023.</p>
+<h2>Authors:</h2>
+<p>Chuansheng Liu, Xindi Wu, Chongchong Li, Mouadh Sadani</p>
+<h2>Project Description</h2>
+<h4>Overall goal of the project</h4>
+<p>The goal of the project is to use convolutional neural network-based architecture to classify images in computer vision.      </p>
+<h4>What framework are you going to use (PyTorch Image Models, Transformer, Pytorch-Geometrics)</h4>
+<p>Because the task is to classify images, we are going to use <a href="https://github.com/rwightman/pytorch-image-models">Pytorch Image Models</a> framework to achieve our project goal.     </p>
+<h4>How do you intend to include the framework into your project</h4>
+<p>From the framework, we will import and modify the needed model. Besides, the framework provides many tools for data processing, tuning, training. We will also use whichever is useful to our project.     </p>
+<h4>What data are you going to run on (initially, may change)</h4>
+<p>We are going to use <a href="https://www.kaggle.com/datasets/ifigotin/imagenetmini-1000">ImageNet 1000 (mini)</a>. It includes 1000 classes. It is a more compressed version of the ImageNet dataset and contains 38,7k images. The ImageNet dataset is used widely for classification challenges and is useful to develop Computer Vision and Deep Learning algorithms.</p>
+<h4>What deep learning models do you expect to use</h4>
+<p>The model we expect to use is <a href="https://arxiv.org/pdf/2004.08955.pdf">ResNeSt</a>. It is a ResNet variant which stacking several Split-Attention blocks (conposed by featuremap group and split attention operations). It is easy to work with, computational efficient, and universally improves the learned feature representations to boost performance across image classification.</p>
+<h2>Project Implementation</h2>
+<p>Configure Environment:
+<code>pip install -r requirements
+pip install -r requirements_tests</code>
+or
+<code>make requirements</code></p>
+<p>Download data and models:
+<code>dvc pull</code>
+or download data from: https://www.kaggle.com/datasets/ifigotin/imagenetmini-1000</p>
+<p>Train model:
+<code>python src/models/train_model.py</code>
+or
+<code>make train</code></p>
+<p>Inference:
+<code>python src/models/predict_model.py</code>
+or
+<code>make predict</code></p>
+<p>Run unittest with coverage
+<code>coverage run --source=./src -m pytest tests/</code>
+or
+<code>make tests</code></p>
+<p>create api (need <a href="https://signoz.io">Signoz</a>)
+<code>make api</code></p>
+<h2>Project Organization</h2>
+<pre><code>├── LICENSE
+│
+├── Makefile           &lt;- Makefile with commands like `make train`.
+│
+├── README.md          &lt;- The top-level README for developers using this project.
+│
+├── app                &lt;- A fastapi to do inference.
+│
+├── conf
+│   ├── data           &lt;- Configurations for dataset.
+│   └── experiment     &lt;- Configurations for training.
+│
+├── data
+│   ├── external       &lt;- Data from third party sources.
+│   ├── interim        &lt;- Intermediate data that has been transformed.
+│   ├── processed      &lt;- The final, canonical data sets for modeling.
+│   └── raw            &lt;- The original, immutable data dump.
+│
+├── docs               &lt;- A default Sphinx project; see sphinx-doc.org for details
+│
+├── model_store        &lt;- Applications for local and cloud deployment.
+│
+├── models             &lt;- Trained and serialized models, model predictions, or model summaries
+│
+├── notebooks          &lt;- Jupyter notebooks. Naming convention is a number (for ordering),
+│                         the creator's initials, and a short `-` delimited description, e.g.
+│                         `1.0-jqp-initial-data-exploration`.
+│
+├── references         &lt;- Data dictionaries, manuals, and all other explanatory materials.
+│
+├── reports            &lt;- Generated analysis as HTML, PDF, LaTeX, etc.
+│   └── figures        &lt;- Generated graphics and figures to be used in reporting
+│
+├── requirements.txt   &lt;- The requirements file for reproducing the analysis environment, e.g.
+│                         generated with `pip freeze &gt; requirements.txt`
+│
+├── setup.py           &lt;- makes project pip installable (pip install -e .) so src can be imported
+│
+├── src                &lt;- Source code for use in this project.
+│   ├── __init__.py    &lt;- Makes src a Python module
+│   │
+│   ├── data           &lt;- Scripts to download or generate data
+│   │   └── make_dataset.py
+│   │
+│   ├── features       &lt;- Scripts to turn raw data into features for modeling
+│   │   └── build_features.py
+│   │
+│   ├── models         &lt;- Scripts to train models and then use trained models to make
+│   │   │                 predictions
+│   │   ├── predict_model.py
+│   │   └── train_model.py
+│   │
+│   └── visualization  &lt;- Scripts to create exploratory and results oriented visualizations
+│       └── visualize.py
+│
+├── tests              &lt;- Unit tests code
+│
+└── tox.ini            &lt;- tox file with settings for running tox; see tox.readthedocs.io
+</code></pre>
+<p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
+
+<h2>Project Checklist</h2>
+<p>Please note that all the lists are <em>exhaustive</em> meaning that I do not expect you to have completed every
+point on the checklist for the exam.</p>
+<h3>Week 1</h3>
+<ul>
+<li>[x] Create a git repository</li>
+<li>[x] Make sure that all team members have write access to the github repository</li>
+<li>[x] Create a dedicated environment for you project to keep track of your packages</li>
+<li>[x] Create the initial file structure using cookiecutter</li>
+<li>[x] Fill out the make_dataset.py file such that it downloads whatever data you need and</li>
+<li>[x] Add a model file and a training script and get that running</li>
+<li>[x] Remember to fill out the requirements.txt file with whatever dependencies that you are using</li>
+<li>[x] Remember to comply with good coding practices (pep8) while doing the project</li>
+<li>[x] Do a bit of code typing and remember to document essential parts of your code</li>
+<li>[x] Setup version control for your data or part of your data</li>
+<li>[x] Construct one or multiple docker files for your code</li>
+<li>[x] Build the docker files locally and make sure they work as intended</li>
+<li>[x] Write one or multiple configurations files for your experiments</li>
+<li>[x] Used Hydra to load the configurations and manage your hyperparameters</li>
+<li>[x] When you have something that works somewhat, remember at some point to to some profiling and see if you can optimize your code</li>
+<li>[x] Use Weights &amp; Biases to log training progress and other important metrics/artifacts in your code. Additionally, consider running a hyperparameter optimization sweep.</li>
+<li>[x] Use Pytorch-lightning (if applicable) to reduce the amount of boilerplate in your code</li>
+</ul>
+<h3>Week 2</h3>
+<ul>
+<li>[x] Write unit tests related to the data part of your code</li>
+<li>[x] Write unit tests related to model construction and or model training</li>
+<li>[x] Calculate the coverage.</li>
+<li>[x] Get some continuous integration running on the github repository</li>
+<li>[x] Create a data storage in GCP Bucket for you data and preferable link this with your data version control setup</li>
+<li>[x] Create a trigger workflow for automatically building your docker images</li>
+<li>[x] Get your model training in GCP using either the Engine or Vertex AI</li>
+<li>[x] Create a FastAPI application that can do inference using your model</li>
+<li>[x] If applicable, consider deploying the model locally using torchserve</li>
+<li>[x] Deploy your model in GCP using either Functions or Run as the backend</li>
+</ul>
+<h3>Week 3</h3>
+<ul>
+<li>[x] Check how robust your model is towards data drifting</li>
+<li>[x] Setup monitoring for the system telemetry of your deployed model</li>
+<li>[x] Setup monitoring for the performance of your deployed model</li>
+<li>[x] If applicable, play around with distributed data loading</li>
+<li>[x] If applicable, play around with distributed model training</li>
+<li>[x] Play around with quantization, compilation and pruning for you trained models to increase inference speed</li>
+</ul>
+<h3>Additional</h3>
+<ul>
+<li>[ ] Revisit your initial project description. Did the project turn out as you wanted?</li>
+<li>[ ] Make sure all group members have a understanding about all parts of the project</li>
+<li>[ ] Uploaded all your code to github</li>
+</ul>

@@ -20,7 +20,7 @@ from yaml.loader import SafeLoader
 import wandb
 from src.data.make_dataset import DataModule
 from src.models.model import ResNeSt
-
+ 
 
 @hydra.main(config_path="../../conf", config_name="config.yaml")
 def train(config: omegaconf.DictConfig) -> None:
