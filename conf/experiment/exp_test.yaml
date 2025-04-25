@@ -1,7 +1,7 @@
 # @package experiment
 name: exp_test
 
-model: resnest50d
+model: resnet18
 
 device: auto
 accelerator: auto
@@ -14,7 +14,6 @@ val_check_interval: 1
 limit_val_batches: 0.1
 num_sanity: 0
 precision: bf16
-
 momentum: 0.9
 lr: 0.04
 lr_monitor: val_loss

@@ -1,128 +1,54 @@
 from pathlib import Path
-
 import hydra
-import omegaconf
 import pytorch_lightning as pl
 import torch
-import yaml
-from omegaconf import OmegaConf
-from pytorch_lightning.callbacks import (
-    EarlyStopping, ModelCheckpoint
-)
-from pytorch_lightning.callbacks import (
-    ModelPruning, QuantizationAwareTraining
-)
+from pytorch_lightning.callbacks import EarlyStopping, ModelCheckpoint
 from pytorch_lightning.loggers import WandbLogger
-from pytorch_lightning.profilers import PyTorchProfiler
-from torch.profiler import ProfilerActivity
-from yaml.loader import SafeLoader
 
-import wandb
 from src.data.make_dataset import DataModule
 from src.models.model import ResNeSt
- 
 
-@hydra.main(config_path="../../conf", config_name="config.yaml")
-def train(config: omegaconf.DictConfig) -> None:
+@hydra.main(version_base="1.1", config_path="../../conf", config_name="config.yaml")
+def train(config):
     paths = config.paths
+    Path(paths.log_path + config.experiment.name).mkdir(parents=True, exist_ok=True)
+    Path(paths.model_path + config.experiment.name).mkdir(parents=True, exist_ok=True)
 
-    Path(paths.log_path + config.experiment.name).mkdir(
-        parents=True, exist_ok=True
-    )
-    Path(paths.model_path + config.experiment.name).mkdir(
-        parents=True, exist_ok=True
-    )
-    Path(paths.profile_path + config.experiment.name).mkdir(
-        parents=True, exist_ok=True
-    )
-
-    wandb.init()
-    wandb.run.name = (
-        config.experiment.name + f"_decay_{wandb.config.decay:.6f}"
-    )
-    wandb.config.update(
-        OmegaConf.to_container(
-            config.experiment, resolve=True, throw_on_missing=True
-        )
-    )
     wandb_logger = WandbLogger(
+        name=config.experiment.name,
         save_dir=paths.log_path + config.experiment.name,
+        project="mlops-project",
         log_model=config.wandb.log_model,
     )
 
-    hparams = wandb.config
-
     datamodule = DataModule(config)
-    model = ResNeSt(hparams)
-
-    wandb_logger.watch(model, log_freq=config.wandb.log_freq)
+    model = ResNeSt(config.experiment)
 
     checkpoint_callback = ModelCheckpoint(
-        dirpath=paths.model_path + hparams.name,
+        dirpath=paths.model_path + config.experiment.name,
         filename="{epoch:02d}-{val_accuracy:.4f}",
-        monitor=hparams.monitor,
-        mode=hparams.monitor_mode,
-        every_n_epochs=hparams.check_every_n_epoch,
-        save_on_train_epoch_end=False,
-    )
-    early_stopping_callback = EarlyStopping(
-        monitor=hparams.monitor,
-        patience=hparams.es_patience,
-        verbose=True,
-        mode=hparams.monitor_mode,
+        monitor=config.experiment.monitor,
+        mode=config.experiment.monitor_mode,
+        save_top_k=1,
     )
 
-    pruning = ModelPruning("random_unstructured")
-    quantization = QuantizationAwareTraining()
-
-    profiler = PyTorchProfiler(
-        dirpath=paths.profile_path + hparams.name,
-        activities=[ProfilerActivity.CPU, ProfilerActivity.CUDA],
-        **{
-            "schedule": torch.profiler.schedule(
-                skip_first=0, wait=0, warmup=198, active=2, repeat=1
-            ),
-            "record_shapes": True,
-            "profile_memory": True,
-            "on_trace_ready": torch.profiler.tensorboard_trace_handler(
-                paths.profile_path + hparams.name
-            ),
-        }
+    early_stopping = EarlyStopping(
+        monitor=config.experiment.monitor,
+        patience=config.experiment.es_patience,
+        mode=config.experiment.monitor_mode,
     )
 
     trainer = pl.Trainer(
-        default_root_dir=paths.log_path + hparams.name,
         logger=wandb_logger,
-        log_every_n_steps=hparams.log_freq,
-        profiler=profiler,
-        devices=hparams.device,
-        accelerator=hparams.accelerator,
-        precision=hparams.precision,
-        max_epochs=hparams.max_epochs,
-        max_steps=hparams.max_steps,
-        num_sanity_val_steps=hparams.num_sanity,
-        val_check_interval=hparams.val_check_interval,
-        callbacks=[
-            checkpoint_callback,
-            early_stopping_callback,
-            pruning,
-            quantization,
-        ],
+        callbacks=[checkpoint_callback, early_stopping],
+        max_epochs=config.experiment.max_epochs,
+        num_sanity_val_steps=0,
+        devices=1,
+        accelerator="cpu",  # 💡你没有 GPU
+        precision=32,
     )
-    trainer.fit(model=model, datamodule=datamodule)
-
-
-def main():
-    with open("conf/sweep.yaml") as f:
-        sweep_configuration = yaml.load(f, Loader=SafeLoader)
-
-    sweep_id = wandb.sweep(
-        sweep_configuration,
-        entity="02476-mlops-group7",
-        project="mlops-project",
-    )
-    wandb.agent(sweep_id, function=train)
-
+    trainer.fit(model, datamodule=datamodule)
 
 if __name__ == "__main__":
-    main()
+    train()
+

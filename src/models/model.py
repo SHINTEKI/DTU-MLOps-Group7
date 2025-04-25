@@ -13,7 +13,7 @@ class ResNeSt(LightningModule):
         super().__init__()
         self.params = hparams
         self.lr = self.params.lr
-        self.model = timm.create_model(self.params.model, pretrained=False)
+        self.model = timm.create_model(self.params.model, pretrained=True)
         self.model.apply(init_weights)
         self.criterion = getattr(torch.nn, self.params.criterion)()
         self.logsoftmax = nn.LogSoftmax(dim=1)
