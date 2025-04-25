@@ -157,5 +157,6 @@ dmypy.json
 /logs
 /tmp
 /.dvcignore
-/data
+data/**
+!data/**/*.dvc
 /models
