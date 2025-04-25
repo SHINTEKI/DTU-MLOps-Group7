@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
+import multiprocessing
 import os
 from pathlib import Path
-import multiprocessing
 
+import pytorch_lightning as pl
 import torch
 from torch.utils.data import DataLoader
 from torchvision import datasets, transforms
-import pytorch_lightning as pl
 
 CROPSIZE = 224
 RESIZE = 256
@@ -24,31 +24,52 @@ class DataModule(pl.LightningDataModule):
         self.batch_size = config.experiment.batch_size
         self.threads = 0  # 💡太大会内存爆炸
 
-        self.train_transform = transforms.Compose([
-            transforms.RandomResizedCrop(CROPSIZE),
-            transforms.RandomHorizontalFlip(),
-            transforms.ToTensor(),
-            transforms.Normalize(IMGNET_MEAN, IMGNET_STD),
-        ])
-        self.val_transform = transforms.Compose([
-            transforms.Resize(RESIZE),
-            transforms.CenterCrop(CROPSIZE),
-            transforms.ToTensor(),
-            transforms.Normalize(IMGNET_MEAN, IMGNET_STD),
-        ])
+        self.train_transform = transforms.Compose(
+            [
+                transforms.RandomResizedCrop(CROPSIZE),
+                transforms.RandomHorizontalFlip(),
+                transforms.ToTensor(),
+                transforms.Normalize(IMGNET_MEAN, IMGNET_STD),
+            ]
+        )
+        self.val_transform = transforms.Compose(
+            [
+                transforms.Resize(RESIZE),
+                transforms.CenterCrop(CROPSIZE),
+                transforms.ToTensor(),
+                transforms.Normalize(IMGNET_MEAN, IMGNET_STD),
+            ]
+        )
 
     def setup(self, stage=None):
         if stage in (None, "fit"):
-            self.train = datasets.ImageFolder(self.train_dir, self.train_transform)
+            self.train = datasets.ImageFolder(
+                self.train_dir, self.train_transform
+            )
             self.val = datasets.ImageFolder(self.val_dir, self.val_transform)
         if stage == "test":
             self.test = datasets.ImageFolder(self.val_dir, self.val_transform)
 
     def train_dataloader(self):
-        return DataLoader(self.train, batch_size=self.batch_size, shuffle=True, num_workers=self.threads)
+        return DataLoader(
+            self.train,
+            batch_size=self.batch_size,
+            shuffle=True,
+            num_workers=self.threads,
+        )
 
     def val_dataloader(self):
-        return DataLoader(self.val, batch_size=self.batch_size, shuffle=False, num_workers=self.threads)
+        return DataLoader(
+            self.val,
+            batch_size=self.batch_size,
+            shuffle=False,
+            num_workers=self.threads,
+        )
 
     def test_dataloader(self):
-        return DataLoader(self.test, batch_size=self.batch_size, shuffle=False, num_workers=self.threads)
+        return DataLoader(
+            self.test,
+            batch_size=self.batch_size,
+            shuffle=False,
+            num_workers=self.threads,
+        )

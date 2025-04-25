@@ -149,7 +149,7 @@ We used the PyTorch image models framework for this project. It was a great choi
 --- question 4 fill here ---
 > Answer:
 
-> We used requirements.txt and requirement_test.txt for managing our dependencies. These two files include all the dependencies and their versions, this way the new team member would know what to install. Additionally, a README.md file with clear instructions on how to set up the development environment, including any setup commands, would be helpful for a new team member. 
+> We used requirements.txt and requirement_test.txt for managing our dependencies. These two files include all the dependencies and their versions, this way the new team member would know what to install. Additionally, a README.md file with clear instructions on how to set up the development environment, including any setup commands, would be helpful for a new team member.
 
 ### Question 5
 
@@ -186,7 +186,7 @@ We followed pep8 guidelines for code formatting and used tool like flake8 to che
 > **How many tests did you implement?**
 >
 > Answer:
-We have two kinds of unit tests. One is testing for data and the other is for model. 
+We have two kinds of unit tests. One is testing for data and the other is for model.
 For the data part, we want to make sure the shape of training set and validation set can be fitted into the regulated shape defined in the model, and the length of labeled class categories are the same as defined in the model; for the model part, we want to make sure that the shape of the output is the same as we wanted.
 
 ### Question 8
@@ -204,8 +204,8 @@ The total code coverage is about 40%, which includes all our source code and far
 > **pull request can help improve version control.**
 >
 > Answer:
-No, we didn't use branches, since we split tasks to work parallelly. We have used pull requests to get everything up to date everytime before we picking up work on it.  
-Braches can improve our team work in the way that if we want to experiment some new codes but also hope to prevent this from polluting and causing conflicts with our current codes, or if we want to create something independently and later decide if we want to have it included in the main project. By creating a "branch" from the "main", we could consistantly only dedicated to updating the branch without the risk of interrupting the major ongoing work. 
+No, we didn't use branches, since we split tasks to work parallelly. We have used pull requests to get everything up to date everytime before we picking up work on it.
+Braches can improve our team work in the way that if we want to experiment some new codes but also hope to prevent this from polluting and causing conflicts with our current codes, or if we want to create something independently and later decide if we want to have it included in the main project. By creating a "branch" from the "main", we could consistantly only dedicated to updating the branch without the risk of interrupting the major ongoing work.
 
 ### Question 10
 
@@ -213,7 +213,7 @@ Braches can improve our team work in the way that if we want to experiment some 
 > **control of your data. If no, explain a case where it would be beneficial to have version control of your data.**
 >
 > Answer:
-Yes, we have used DVC for original data, training data and trained best performed model storage. 
+Yes, we have used DVC for original data, training data and trained best performed model storage.
 Since we have committed each update of our data and trained model, we could trace the performance of the best model based on each dataset. The original dataset has keeps updating and each process of training is based on different training set, DVC makes it accessible to compare and restore datasets.
 
 ### Question 11
@@ -244,7 +244,7 @@ An example of a triggered workflow can be seen here: https://github.com/kristian
 >
 > Answer:
 
-> The hyperparameters are loaded from /conf/config.yaml . We can modify the hyperparameters in this file accordingly for the model training. We import this configuration into the train_model.py file in src/models/. The hyperparameters are passed through the function 
+> The hyperparameters are loaded from /conf/config.yaml . We can modify the hyperparameters in this file accordingly for the model training. We import this configuration into the train_model.py file in src/models/. The hyperparameters are passed through the function
 >```
 >@hydra.main(config_path="../../conf", config_name="config.yaml")
 >```
@@ -264,7 +264,7 @@ An example of a triggered workflow can be seen here: https://github.com/kristian
 > Answer:
 
 > The hyperparameters are automatically saved based on the output of the model. For this, we used WandB, where the hyperparameters of the config file are stored, and thus the experiments are saved and any lost of information or overwritting is unlikely to happen. This can be seen in the function of the train_model.py file:
-  
+
 >   ```
 >   wandb_logger = WandbLogger(
 >        save_dir=paths.log_path + config.experiment.name,
@@ -471,7 +471,7 @@ An example of a triggered workflow can be seen here: https://github.com/kristian
 > *Whenever we commit code and puch to github, it auto triggers ... and ... . From there the diagram shows ...*
 
 --- question 25 fill here ---
-> Answer: 
+> Answer:
 ![Alt text](figures/Pipeline.png?raw=true "Pipeline")
 
 The starting point of the diagram is our local setup, where we integrated tools like pep8, flake8, black, and isort into our code. Whenever we commit code and push to Github, it auto-triggers the Continuous Integration process, which runs the unit tests and check coverage of the code. The code is then built and containerized using Docker and the built images are then stored in GCP Container Registry. After this, we deployed the code to the GCP using both Cloud Functions and Cloud Run. The deployed code is exposed as a RESTful API, which is accessed by the client application. Then, the api is accessed by the client application, which sends the input data to the model and receives the output. Finally, we utilized GCP monitoring and logging service to monitor the model's performance.
@@ -503,4 +503,4 @@ The starting point of the diagram is our local setup, where we integrated tools 
 > *All members contributed to code by...*
 
 --- question 27 fill here ---
-> Answer: Student s212634 was in charge of developing of setting up the initial cookie cutter project and the coding environment. Student s212661 was in charge of training our models in the cloud and deploying them afterwards. Student s225521 was in charge of using version control(Git) to track changes to the code and using DVC for managing data. Student s220726 was in charge of running code and tracking experiments and developing of the docker containers for training our applications. But we arranged meetings to review the codes together to make sure every step is clear to everyone and our processes don't conflict with each other.  
+> Answer: Student s212634 was in charge of developing of setting up the initial cookie cutter project and the coding environment. Student s212661 was in charge of training our models in the cloud and deploying them afterwards. Student s225521 was in charge of using version control(Git) to track changes to the code and using DVC for managing data. Student s220726 was in charge of running code and tracking experiments and developing of the docker containers for training our applications. But we arranged meetings to review the codes together to make sure every step is clear to everyone and our processes don't conflict with each other.

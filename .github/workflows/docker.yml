@@ -2,7 +2,7 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ master, main ]
+    branches:  ["*"]
 
 jobs:
   build:
@@ -20,7 +20,7 @@ jobs:
       -
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
-      - 
+      -
         name: Build the Docker image
         run: |
           docker build . --file ./trainer.dockerfile \

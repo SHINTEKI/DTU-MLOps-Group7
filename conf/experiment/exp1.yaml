@@ -14,7 +14,7 @@ val_check_interval: 0.25
 limit_val_batches: 1
 num_sanity: 0
 precision: bf16
-decay: 0.0001 
+decay: 0.0001
 momentum: 0.9
 lr: 0.04
 lr_monitor: val_loss

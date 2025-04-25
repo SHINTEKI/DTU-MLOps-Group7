@@ -21,19 +21,19 @@ def cli():
 
 @cli.command()
 def html():
-    with open("README.md", "r", encoding='utf-8') as file:
+    with open("README.md", "r", encoding="utf-8") as file:
         text = file.read()
     text = text[43:]  # remove header
 
     html = markdown.markdown(text)
 
-    with open("report.html", "w", encoding='utf-8') as newfile:
+    with open("report.html", "w", encoding="utf-8") as newfile:
         newfile.write(html)
 
 
 @cli.command()
 def check():
-    with open("README.md", "r", encoding='utf-8') as file:
+    with open("README.md", "r", encoding="utf-8") as file:
         text = file.read()
     text = text[43:]  # remove header
 

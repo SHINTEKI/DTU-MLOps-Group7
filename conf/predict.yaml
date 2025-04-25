@@ -1,4 +1,4 @@
-model: resnest50d
+model: resnet18  # ✅ 改为你当前训练用的模型名
 
 lr: 0.01
 momentum: 0.9

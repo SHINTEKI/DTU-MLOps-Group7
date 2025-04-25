@@ -2,7 +2,8 @@ name: "Run flake8"
 
 on:
   push:
-    branches: [ master, main ]
+    branches: ["*"]
+
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}-${{ github.head_ref }}

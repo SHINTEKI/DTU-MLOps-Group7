@@ -149,7 +149,7 @@ corporate and increase the quality of your code.</p>
 <blockquote>
 <p><strong>How many tests did you implement?</strong></p>
 <p>Answer:
-We have two kinds of unit tests. One is testing for data and the other is for model. 
+We have two kinds of unit tests. One is testing for data and the other is for model.
 For the data part, we want to make sure the shape of training set and validation set can be fitted into the regulated shape defined in the model, and the length of labeled class categories are the same as defined in the model; for the model part, we want to make sure that the shape of the output is the same as we wanted.</p>
 </blockquote>
 <h3>Question 8</h3>
@@ -173,7 +173,7 @@ Braches can improve our team work in the way that if we want to experiment some 
 <p><strong>Did you use DVC for managing data in your project? If yes, then how did it improve your project to have version</strong>
 <strong>control of your data. If no, explain a case where it would be beneficial to have version control of your data.</strong></p>
 <p>Answer:
-Yes, we have used DVC for original data, training data and trained best performed model storage. 
+Yes, we have used DVC for original data, training data and trained best performed model storage.
 Since we have committed each update of our data and trained model, we could trace the performance of the best model based on each dataset. The original dataset has keeps updating and each process of training is based on different training set, DVC makes it accessible to compare and restore datasets.</p>
 </blockquote>
 <h3>Question 11</h3>
@@ -199,7 +199,7 @@ especially the reproducibility of your experiments.</p>
 <p>Example:
 <em>We used a simple argparser, that worked in the following way: python my_script.py --lr 1e-3 --batch_size 25</em></p>
 <p>Answer:</p>
-<p>The hyperparameters are loaded from /conf/config.yaml . We can modify the hyperparameters in this file accordingly for the model training. We import this configuration into the train_model.py file in src/models/. The hyperparameters are passed through the function 
+<p>The hyperparameters are loaded from /conf/config.yaml . We can modify the hyperparameters in this file accordingly for the model training. We import this configuration into the train_model.py file in src/models/. The hyperparameters are passed through the function
 <code>@hydra.main(config_path="../../conf", config_name="config.yaml")</code>
 Argparser was not needed since we used hydra.</p>
 </blockquote>
@@ -372,7 +372,7 @@ docker run --name predictor -p 80:80 predict_app</code></p>
 </blockquote>
 <p>--- question 25 fill here ---</p>
 <blockquote>
-<p>Answer: 
+<p>Answer:
 <img alt="Alt text" src="figures/Pipeline.png?raw=true" title="Pipeline" /></p>
 </blockquote>
 <p>The starting point of the diagram is our local setup, where we integrated tools like pep8, flake8, black, and isort into our code. Whenever we commit code and push to Github, it auto-triggers the Continuous Integration process, which runs the unit tests and check coverage of the code. The code is then built and containerized using Docker and the built images are then stored in GCP Container Registry. After this, we deployed the code to the GCP using both Cloud Functions and Cloud Run. The deployed code is exposed as a RESTful API, which is accessed by the client application. Then, the api is accessed by the client application, which sends the input data to the model and receives the output. Finally, we utilized GCP monitoring and logging service to monitor the model's performance.</p>

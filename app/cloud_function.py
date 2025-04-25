@@ -1,8 +1,9 @@
+import json
+
 import cv2
 import numpy as np
 import torch
 from google.cloud import storage
-import json
 
 MODEL_BUCKET_NAME = "dtu-mlops-group7-models"
 MODEL_FILE = "deployable_model.pt"
