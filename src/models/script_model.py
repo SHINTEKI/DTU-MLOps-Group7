@@ -9,9 +9,7 @@ from src.models.model import ResNeSt
 def convert_ckpt_to_script_model(config):
     model_path = config.paths.model_path
 
-    ckpt_list = glob.glob(
-        os.path.join(model_path, "**", "*.ckpt"), recursive=True
-    )
+    ckpt_list = glob.glob(os.path.join(model_path, "**", "*.ckpt"), recursive=True)
 
     if len(ckpt_list) == 0:
         raise FileNotFoundError(f"No .ckpt file found under {model_path}")

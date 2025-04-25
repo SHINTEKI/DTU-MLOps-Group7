@@ -19,5 +19,5 @@ def test_model() -> None:
 
     assert list(output.shape) == [
         config.experiment.batch_size,
-        N_IMAGENET_MINI_CLASS,
+        1000,
     ]

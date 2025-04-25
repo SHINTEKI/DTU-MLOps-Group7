@@ -10,17 +10,11 @@ from src.data.make_dataset import DataModule
 from src.models.model import ResNeSt
 
 
-@hydra.main(
-    version_base="1.1", config_path="../../conf", config_name="config.yaml"
-)
+@hydra.main(version_base="1.1", config_path="../../conf", config_name="config.yaml")
 def train(config):
     paths = config.paths
-    Path(paths.log_path + config.experiment.name).mkdir(
-        parents=True, exist_ok=True
-    )
-    Path(paths.model_path + config.experiment.name).mkdir(
-        parents=True, exist_ok=True
-    )
+    Path(paths.log_path + config.experiment.name).mkdir(parents=True, exist_ok=True)
+    Path(paths.model_path + config.experiment.name).mkdir(parents=True, exist_ok=True)
 
     wandb_logger = WandbLogger(
         name=config.experiment.name,

@@ -28,9 +28,7 @@ def fit_detector(model, dataloader):
     detector = torchdrift.detectors.KernelMMDDriftDetector(return_p_value=True)
     feature_extractor = copy.deepcopy(model)
     feature_extractor[1] = torch.nn.Identity()
-    torchdrift.utils.fit(
-        dataloader, feature_extractor, detector, num_batches=1
-    )
+    torchdrift.utils.fit(dataloader, feature_extractor, detector, num_batches=1)
     return detector, feature_extractor
 
 
@@ -48,13 +46,9 @@ def main():
         map_location=device,
         hparams=config.experiment,
     )
-    state_dict = OrderedDict(
-        [(k[6:], v) for k, v in model.state_dict().items()]
-    )
+    state_dict = OrderedDict([(k[6:], v) for k, v in model.state_dict().items()])
 
-    feature_extractor = timm.create_model(
-        config.experiment.model, pretrained=False
-    )
+    feature_extractor = timm.create_model(config.experiment.model, pretrained=False)
     feature_extractor.load_state_dict(state_dict)
     feature_extractor.fc = torch.nn.Identity()
     model = torch.nn.Sequential(
@@ -66,9 +60,7 @@ def main():
     for p in model.parameters():
         p.requires_grad_(False)
 
-    detector, feature_extractor = fit_detector(
-        model, datamodule.train_dataloader()
-    )
+    detector, feature_extractor = fit_detector(model, datamodule.train_dataloader())
 
     batch = next(iter(datamodule.val_dataloader()))[0].to(device)
     batch_drifted = torchdrift.data.functional.gaussian_blur(batch, 2)

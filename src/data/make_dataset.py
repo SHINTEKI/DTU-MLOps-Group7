@@ -43,9 +43,7 @@ class DataModule(pl.LightningDataModule):
 
     def setup(self, stage=None):
         if stage in (None, "fit"):
-            self.train = datasets.ImageFolder(
-                self.train_dir, self.train_transform
-            )
+            self.train = datasets.ImageFolder(self.train_dir, self.train_transform)
             self.val = datasets.ImageFolder(self.val_dir, self.val_transform)
         if stage == "test":
             self.test = datasets.ImageFolder(self.val_dir, self.val_transform)

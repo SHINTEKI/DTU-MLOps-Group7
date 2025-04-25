@@ -34,9 +34,7 @@ log = logging.getLogger(__name__)
 @click.command()
 @click.argument("input_filepath", type=click.Path(exists=True))
 def predict(input_filepath) -> None:
-    hydra.initialize(
-        config_path="../../conf", job_name="predict", version_base=None
-    )
+    hydra.initialize(config_path="../../conf", job_name="predict", version_base=None)
     config = compose(config_name="predict.yaml")
     paths = config.paths
 
@@ -67,9 +65,7 @@ def predict(input_filepath) -> None:
 
         img = cv2.imread(file)
         img = cv2.resize(img, (CROPSIZE, CROPSIZE))
-        img = (img - 255 * np.array(IMGNET_MEAN)) / (
-            255 * np.array(IMGNET_STD)
-        )
+        img = (img - 255 * np.array(IMGNET_MEAN)) / (255 * np.array(IMGNET_STD))
         img = img.transpose(2, 0, 1)[np.newaxis, :, :, :]
         img = torch.from_numpy(img).float().to(device)
 
@@ -85,9 +81,7 @@ def predict(input_filepath) -> None:
 def mapping_to_outcome(top_class):
     index_file = Path("app/index_to_name.json")
     if not index_file.exists():
-        raise FileNotFoundError(
-            "index_to_name.json file not found in app/ directory!"
-        )
+        raise FileNotFoundError("index_to_name.json file not found in app/ directory!")
 
     with open(index_file) as f:
         data = json.load(f)

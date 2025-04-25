@@ -15,7 +15,9 @@ def test_data() -> None:
 
     datamodule = DataModule(config)
     datamodule.prepare_data()
-    trainset, valset = datamodule.setup("fit")
+    datamodule.setup("fit")
+    trainset = datamodule.train
+    valset = datamodule.val
 
     assert len(trainset) == N_IMAGENET_MINI_TRAIN
     assert len(valset) == N_IMAGENET_MINI_VAL
