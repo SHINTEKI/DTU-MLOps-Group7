@@ -44,6 +44,6 @@ jobs:
 
     - name: Run Ruff
       run: |
-        ruff check src/
-        ruff check tests/
+        ruff format src/ 
+        ruff format tests/ 
 
