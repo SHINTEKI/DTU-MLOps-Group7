@@ -2,3 +2,5 @@
     remote = storage
 ['remote "storage"']
     url = gdrive://1pHzgV108XfblEdGNUY-6cDQJsbCpdOfn
+    gdrive_use_service_account = true
+    gdrive_service_account_json_file_path = C:\Users\wuxin\Desktop\nice-hangar-428815-u6-4a5b6b5da2b2.json
