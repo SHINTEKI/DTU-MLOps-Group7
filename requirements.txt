@@ -32,3 +32,6 @@ dvc-gdrive==3.0.1
 dvc-gs==3.0.1
 pre-commit
 ruff==0.11.7
+opentelemetry-sdk 
+opentelemetry-exporter-otlp 
+opentelemetry-instrumentation-fastapi
