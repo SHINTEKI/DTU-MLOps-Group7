@@ -42,5 +42,4 @@ jobs:
         pip install isort
     - name: Sort python files
       run: |
-        isort src/
-        isort tests/
+        isort .

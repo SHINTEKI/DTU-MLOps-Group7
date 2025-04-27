@@ -26,7 +26,7 @@ torch==1.13.0
 torchdrift
 torchvision
 uvicorn
-wandb==0.13.8
+wandb==0.19.10
 dvc==3.59.1
 dvc-gdrive==3.0.1
 dvc-gs==3.0.1
@@ -35,3 +35,5 @@ ruff==0.11.7
 opentelemetry-sdk 
 opentelemetry-exporter-otlp 
 opentelemetry-instrumentation-fastapi
+python-multipart
+opencv-python-headless

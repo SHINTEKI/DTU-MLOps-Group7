@@ -1,0 +1,141 @@
+.
+├── LICENSE
+├── Makefile
+├── README.md
+├── setup.py
+├── requirements.txt
+├── requirements_tests.txt
+├── conf
+│   ├── __init__.py
+│   ├── config.yaml
+│   ├── data
+│   │   └── imagenet-mini.yaml
+│   ├── experiment
+│   │   ├── exp1.yaml
+│   │   ├── exp2.yaml
+│   │   ├── exp3.yaml
+│   │   ├── exp4.yaml
+│   │   ├── exp5.yaml
+│   │   └── exp_test.yaml
+│   ├── predict.yaml
+│   └── sweep.yaml
+├── src
+│   ├── __init__.py
+│   ├── data
+│   │   ├── __init__.py
+│   │   └── make_dataset.py
+│   └── models
+│       ├── __init__.py
+│       ├── model.py
+│       ├── predict_model.py
+│       ├── script_model.py
+│       └── train_model.py
+├── tests
+│   ├── __init__.py
+│   ├── test_data.py
+│   └── test_model.py
+├── app
+│   ├── __init__.py
+│   ├── cloud_deployment.py
+│   ├── cloud_function.py
+│   ├── index_to_name.json
+│   ├── predict_image.py
+│   └── requirements.txt
+├── data
+│   ├── processed
+│   │   ├── train_dataset.pt
+│   │   └── val_dataset.pt
+│   └── raw
+│       └── imagenet-mini
+├── cloudbuild.yaml
+├── cml.yaml
+├── codecov.yml
+├── data.dvc
+├── docs
+│   ├── Makefile
+│   ├── commands.rst
+│   ├── conf.py
+│   ├── getting-started.rst
+│   ├── index.rst
+│   └── make.bat
+├── entrypoint.sh
+├── jobscript.sh
+├── logs
+│   └── exp4
+│       └── wandb
+├── model_store
+│   └── resnest_model.mar
+├── models
+│   ├── deployable_model.pt
+│   └── exp4
+│       └── epoch=03-val_accuracy=0.5455.ckpt
+├── models.dvc
+├── outputs
+├── prediction.dockerfile
+├── profiles
+│   └── exp4
+
+├── tox.ini
+├── trainer.dockerfile
+└── wandb
+    ├── debug-cli.wuxin.log
+    ├── run-20250424_231139-0smss7na
+    │   ├── files
+    │   ├── logs
+    │   ├── run-0smss7na.wandb
+    │   └── tmp
+    ├── run-20250424_231232-28ojtdxs
+    │   ├── files
+    │   ├── logs
+    │   └── tmp
+    ├── run-20250424_231653-5tty4ypw
+    │   ├── files
+    │   ├── logs
+    │   ├── run-5tty4ypw.wandb
+    │   └── tmp
+    ├── run-20250424_231741-70hx1e5a
+    │   ├── files
+    │   ├── logs
+    │   └── tmp
+    ├── run-20250424_232710-6hgi0sqp
+    │   ├── files
+    │   ├── logs
+    │   ├── run-6hgi0sqp.wandb
+    │   └── tmp
+    ├── run-20250424_232804-sav5yf5w
+    │   ├── files
+    │   ├── logs
+    │   └── tmp
+    ├── run-20250425_001857-3f06mlo8
+    │   ├── files
+    │   ├── logs
+    │   ├── run-3f06mlo8.wandb
+    │   └── tmp
+    ├── run-20250425_001954-07c7clvl
+    │   ├── files
+    │   ├── logs
+    │   └── tmp
+    ├── run-20250425_002726-w484p4rn
+    │   ├── files
+    │   ├── logs
+    │   ├── run-w484p4rn.wandb
+    │   └── tmp
+    ├── run-20250425_003418-9mldez9v
+    │   ├── files
+    │   ├── logs
+    │   ├── run-9mldez9v.wandb
+    │   └── tmp
+    ├── sweep-f6i1ig17
+    │   ├── config-6hgi0sqp.yaml
+    │   └── config-sav5yf5w.yaml
+    ├── sweep-jt84dqz3
+    │   ├── config-5tty4ypw.yaml
+    │   └── config-70hx1e5a.yaml
+    ├── sweep-rvlt89xd
+    │   ├── config-0smss7na.yaml
+    │   └── config-28ojtdxs.yaml
+    └── sweep-rwh3k86x
+        ├── config-07c7clvl.yaml
+        └── config-3f06mlo8.yaml
+
+105 directories, 131 files

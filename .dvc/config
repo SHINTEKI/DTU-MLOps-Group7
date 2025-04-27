@@ -3,8 +3,8 @@
 ['remote "storage"']
     url = gdrive://1pHzgV108XfblEdGNUY-6cDQJsbCpdOfn
     gdrive_use_service_account = true
-    gdrive_service_account_json_file_path = C:\Users\wuxin\Desktop\nice-hangar-428815-u6-4a5b6b5da2b2.json
+    gdrive_service_account_json_file_path = /workspace/.config/gdrive/nice-hangar-428815-u6-4a5b6b5da2b2.json
 ['remote "model-storage"']
     url = gdrive://1d7Wvb0WVph3INT3iCp6dqB3rBzhF5lk0
     gdrive_use_service_account = true
-    gdrive_service_account_json_file_path = C:\Users\wuxin\Desktop\nice-hangar-428815-u6-4a5b6b5da2b2.json
+    gdrive_service_account_json_file_path = /workspace/.config/gdrive/nice- hangar-428815-u6-4a5b6b5da2b2.json

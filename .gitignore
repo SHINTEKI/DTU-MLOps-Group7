@@ -160,3 +160,5 @@ dmypy.json
 data/**
 !data/**/*.dvc
 /models
+
+.config
