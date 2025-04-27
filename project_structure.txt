@@ -1,40 +1,36 @@
 .
 ├── LICENSE
-├── Makefile
-├── README.md
-├── setup.py
-├── requirements.txt
+├── Makefile                <- Makefile with commands like `make train`.
+├── README.md               <- The top-level README for developers using this project.
+├── setup.py                <- makes project pip installable (pip install -e .) so src can be imported.
+├── tox.ini
+├── requirements.txt        <- The requirements file for reproducing the analysis environment.
 ├── requirements_tests.txt
-├── conf
+├── conf                    <- The overall configurations for the project.
 │   ├── __init__.py
 │   ├── config.yaml
-│   ├── data
+│   ├── data                <- Configurations for dataset.
 │   │   └── imagenet-mini.yaml
-│   ├── experiment
-│   │   ├── exp1.yaml
-│   │   ├── exp2.yaml
-│   │   ├── exp3.yaml
-│   │   ├── exp4.yaml
-│   │   ├── exp5.yaml
-│   │   └── exp_test.yaml
+│   ├── experiment          <- Configurations for training.
+│   │   └── exp1.yaml
 │   ├── predict.yaml
 │   └── sweep.yaml
-├── src
+├── src                     <- Source code for use in this project.
 │   ├── __init__.py
-│   ├── data
+│   ├── data                <- Scripts to download or generate data.
 │   │   ├── __init__.py
 │   │   └── make_dataset.py
-│   └── models
+│   └── models              <- Scripts to train models and then use trained models to make predictions.
 │       ├── __init__.py
 │       ├── model.py
 │       ├── predict_model.py
 │       ├── script_model.py
 │       └── train_model.py
-├── tests
+├── tests                   <- Unit tests code for dataset and models.
 │   ├── __init__.py
 │   ├── test_data.py
 │   └── test_model.py
-├── app
+├── app                     <- A self-contained fastapi to do inference.
 │   ├── __init__.py
 │   ├── cloud_deployment.py
 │   ├── cloud_function.py
@@ -42,94 +38,32 @@
 │   ├── predict_image.py
 │   └── requirements.txt
 ├── data
-│   ├── processed
+│   ├── processed           <- The final, canonical data sets for modeling.
 │   │   ├── train_dataset.pt
 │   │   └── val_dataset.pt
-│   └── raw
+│   └── raw                 <- The original, immutable data dump.
 │       └── imagenet-mini
-├── cloudbuild.yaml
-├── cml.yaml
-├── codecov.yml
-├── data.dvc
-├── docs
-│   ├── Makefile
-│   ├── commands.rst
-│   ├── conf.py
-│   ├── getting-started.rst
-│   ├── index.rst
-│   └── make.bat
-├── entrypoint.sh
-├── models
+├── data.dvc                <- dvc tracking for the data folder.
+├── models                  <- Trained and serialized models.
 │   ├── deployable_model.pt
 │   └── exp4
 │       └── epoch=03-val_accuracy=0.5455.ckpt
-├── models.dvc
-├── outputs
-├── prediction.dockerfile
+├── models.dvc              <- dvc tracking for the models folder.
+├── trainer.dockerfile      <- dockerfile for the training process.
+├── prediction.dockerfile   <- dockerfile for the prediction process.
+├── entrypoint.sh
+├── cloudbuild.yaml
+├── cml.yaml
+├── codecov.yml
+├── docs                    <- sphinx documentation of the project's codebase.
 ├── profiles
 │   └── exp4
-
-├── tox.ini
-├── trainer.dockerfile
-└── wandb
-    ├── debug-cli.wuxin.log
-    ├── run-20250424_231139-0smss7na
-    │   ├── files
-    │   ├── logs
-    │   ├── run-0smss7na.wandb
-    │   └── tmp
-    ├── run-20250424_231232-28ojtdxs
-    │   ├── files
-    │   ├── logs
-    │   └── tmp
-    ├── run-20250424_231653-5tty4ypw
-    │   ├── files
-    │   ├── logs
-    │   ├── run-5tty4ypw.wandb
-    │   └── tmp
-    ├── run-20250424_231741-70hx1e5a
-    │   ├── files
-    │   ├── logs
-    │   └── tmp
-    ├── run-20250424_232710-6hgi0sqp
-    │   ├── files
-    │   ├── logs
-    │   ├── run-6hgi0sqp.wandb
-    │   └── tmp
-    ├── run-20250424_232804-sav5yf5w
-    │   ├── files
-    │   ├── logs
-    │   └── tmp
-    ├── run-20250425_001857-3f06mlo8
-    │   ├── files
-    │   ├── logs
-    │   ├── run-3f06mlo8.wandb
-    │   └── tmp
-    ├── run-20250425_001954-07c7clvl
-    │   ├── files
-    │   ├── logs
-    │   └── tmp
-    ├── run-20250425_002726-w484p4rn
-    │   ├── files
-    │   ├── logs
-    │   ├── run-w484p4rn.wandb
-    │   └── tmp
+└── wandb                   <- wandb log for the each experiment(training) and hyperparameter sweeping.
     ├── run-20250425_003418-9mldez9v
     │   ├── files
     │   ├── logs
     │   ├── run-9mldez9v.wandb
     │   └── tmp
-    ├── sweep-f6i1ig17
-    │   ├── config-6hgi0sqp.yaml
-    │   └── config-sav5yf5w.yaml
-    ├── sweep-jt84dqz3
-    │   ├── config-5tty4ypw.yaml
-    │   └── config-70hx1e5a.yaml
-    ├── sweep-rvlt89xd
-    │   ├── config-0smss7na.yaml
-    │   └── config-28ojtdxs.yaml
     └── sweep-rwh3k86x
-        ├── config-07c7clvl.yaml
         └── config-3f06mlo8.yaml
 
-105 directories, 131 files
