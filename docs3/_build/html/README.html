@@ -1,0 +1,323 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DTU-MLOps-Group7 &mdash; MLOps for Image Classification 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            MLOps for Image Classification
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">DTU-MLOps-Group7</a><ul>
+<li><a class="reference internal" href="#authors">Authors:</a></li>
+<li><a class="reference internal" href="#project-description">Project Description</a><ul>
+<li><a class="reference internal" href="#overall-goal-of-the-project">Overall goal of the project</a></li>
+<li><a class="reference internal" href="#what-framework-are-you-going-to-use-pytorch-image-models-transformer-pytorch-geometrics">What framework are you going to use (PyTorch Image Models, Transformer, Pytorch-Geometrics)</a></li>
+<li><a class="reference internal" href="#how-do-you-intend-to-include-the-framework-into-your-project">How do you intend to include the framework into your project</a></li>
+<li><a class="reference internal" href="#what-data-are-you-going-to-run-on-initially-may-change">What data are you going to run on (initially, may change)</a></li>
+<li><a class="reference internal" href="#what-deep-learning-models-do-you-expect-to-use">What deep learning models do you expect to use</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#project-implementation">Project Implementation</a></li>
+<li><a class="reference internal" href="#project-organization">Project Organization</a></li>
+<li><a class="reference internal" href="#project-checklist">Project Checklist</a><ul>
+<li><a class="reference internal" href="#week-1">Week 1</a></li>
+<li><a class="reference internal" href="#week-2">Week 2</a></li>
+<li><a class="reference internal" href="#week-3">Week 3</a></li>
+<li><a class="reference internal" href="#additional">Additional</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MLOps for Image Classification</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">DTU-MLOps-Group7</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/README.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="dtu-mlops-group7">
+<h1>DTU-MLOps-Group7<a class="headerlink" href="#dtu-mlops-group7" title="Link to this heading"></a></h1>
+<p>Project repository for DTU 02476 - MLOps courses in January 2023.</p>
+<section id="authors">
+<h2>Authors:<a class="headerlink" href="#authors" title="Link to this heading"></a></h2>
+<p>Chuansheng Liu, Xindi Wu, Chongchong Li, Mouadh Sadani</p>
+</section>
+<section id="project-description">
+<h2>Project Description<a class="headerlink" href="#project-description" title="Link to this heading"></a></h2>
+<section id="overall-goal-of-the-project">
+<h3>Overall goal of the project<a class="headerlink" href="#overall-goal-of-the-project" title="Link to this heading"></a></h3>
+<p>The goal of the project is to use convolutional neural network-based architecture to classify images in computer vision.</p>
+</section>
+<section id="what-framework-are-you-going-to-use-pytorch-image-models-transformer-pytorch-geometrics">
+<h3>What framework are you going to use (PyTorch Image Models, Transformer, Pytorch-Geometrics)<a class="headerlink" href="#what-framework-are-you-going-to-use-pytorch-image-models-transformer-pytorch-geometrics" title="Link to this heading"></a></h3>
+<p>Because the task is to classify images, we are going to use <a class="reference external" href="https://github.com/rwightman/pytorch-image-models">Pytorch Image Models</a> framework to achieve our project goal.</p>
+</section>
+<section id="how-do-you-intend-to-include-the-framework-into-your-project">
+<h3>How do you intend to include the framework into your project<a class="headerlink" href="#how-do-you-intend-to-include-the-framework-into-your-project" title="Link to this heading"></a></h3>
+<p>From the framework, we will import and modify the needed model. Besides, the framework provides many tools for data processing, tuning, training. We will also use whichever is useful to our project.</p>
+</section>
+<section id="what-data-are-you-going-to-run-on-initially-may-change">
+<h3>What data are you going to run on (initially, may change)<a class="headerlink" href="#what-data-are-you-going-to-run-on-initially-may-change" title="Link to this heading"></a></h3>
+<p>We are going to use <a class="reference external" href="https://www.kaggle.com/datasets/ifigotin/imagenetmini-1000">ImageNet 1000 (mini)</a>. It includes 1000 classes. It is a more compressed version of the ImageNet dataset and contains 38,7k images. The ImageNet dataset is used widely for classification challenges and is useful to develop Computer Vision and Deep Learning algorithms.</p>
+</section>
+<section id="what-deep-learning-models-do-you-expect-to-use">
+<h3>What deep learning models do you expect to use<a class="headerlink" href="#what-deep-learning-models-do-you-expect-to-use" title="Link to this heading"></a></h3>
+<p>The model we expect to use is <a class="reference external" href="https://arxiv.org/pdf/2004.08955.pdf">ResNeSt</a>. It is a ResNet variant which stacking several Split-Attention blocks (conposed by featuremap group and split attention operations). It is easy to work with, computational efficient, and universally improves the learned feature representations to boost performance across image classification.</p>
+</section>
+</section>
+<section id="project-implementation">
+<h2>Project Implementation<a class="headerlink" href="#project-implementation" title="Link to this heading"></a></h2>
+<p>Configure Environment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements_tests</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">requirements</span>
+</pre></div>
+</div>
+<p>Download data and models:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dvc</span> <span class="n">pull</span>
+</pre></div>
+</div>
+<p>or download data from: https://www.kaggle.com/datasets/ifigotin/imagenetmini-1000</p>
+<p>Train model:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">src</span><span class="o">/</span><span class="n">models</span><span class="o">/</span><span class="n">train_model</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">train</span>
+</pre></div>
+</div>
+<p>Inference:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">src</span><span class="o">/</span><span class="n">models</span><span class="o">/</span><span class="n">predict_model</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">predict</span>
+</pre></div>
+</div>
+<p>Run unittest with coverage</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">coverage</span> <span class="n">run</span> <span class="o">--</span><span class="n">source</span><span class="o">=./</span><span class="n">src</span> <span class="o">-</span><span class="n">m</span> <span class="n">pytest</span> <span class="n">tests</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">tests</span>
+</pre></div>
+</div>
+<p>create api (need <a class="reference external" href="https://signoz.io">Signoz</a>)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">api</span>
+</pre></div>
+</div>
+</section>
+<section id="project-organization">
+<h2>Project Organization<a class="headerlink" href="#project-organization" title="Link to this heading"></a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>├── LICENSE
+│
+├── Makefile           &lt;- Makefile with commands like `make train`.
+│
+├── README.md          &lt;- The top-level README for developers using this project.
+│
+├── app                &lt;- A fastapi to do inference.
+│
+├── conf
+│   ├── data           &lt;- Configurations for dataset.
+│   └── experiment     &lt;- Configurations for training.
+│
+├── data
+│   ├── external       &lt;- Data from third party sources.
+│   ├── interim        &lt;- Intermediate data that has been transformed.
+│   ├── processed      &lt;- The final, canonical data sets for modeling.
+│   └── raw            &lt;- The original, immutable data dump.
+│
+├── docs               &lt;- A default Sphinx project; see sphinx-doc.org for details
+│
+├── model_store        &lt;- Applications for local and cloud deployment.
+│
+├── models             &lt;- Trained and serialized models, model predictions, or model summaries
+│
+├── notebooks          &lt;- Jupyter notebooks. Naming convention is a number (for ordering),
+│                         the creator&#39;s initials, and a short `-` delimited description, e.g.
+│                         `1.0-jqp-initial-data-exploration`.
+│
+├── references         &lt;- Data dictionaries, manuals, and all other explanatory materials.
+│
+├── reports            &lt;- Generated analysis as HTML, PDF, LaTeX, etc.
+│   └── figures        &lt;- Generated graphics and figures to be used in reporting
+│
+├── requirements.txt   &lt;- The requirements file for reproducing the analysis environment, e.g.
+│                         generated with `pip freeze &gt; requirements.txt`
+│
+├── setup.py           &lt;- makes project pip installable (pip install -e .) so src can be imported
+│
+├── src                &lt;- Source code for use in this project.
+│   ├── __init__.py    &lt;- Makes src a Python module
+│   │
+│   ├── data           &lt;- Scripts to download or generate data
+│   │   └── make_dataset.py
+│   │
+│   ├── features       &lt;- Scripts to turn raw data into features for modeling
+│   │   └── build_features.py
+│   │
+│   ├── models         &lt;- Scripts to train models and then use trained models to make
+│   │   │                 predictions
+│   │   ├── predict_model.py
+│   │   └── train_model.py
+│   │
+│   └── visualization  &lt;- Scripts to create exploratory and results oriented visualizations
+│       └── visualize.py
+│
+├── tests              &lt;- Unit tests code
+│
+└── tox.ini            &lt;- tox file with settings for running tox; see tox.readthedocs.io
+</pre></div>
+</div>
+<p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
+</section>
+<section id="project-checklist">
+<h2>Project Checklist<a class="headerlink" href="#project-checklist" title="Link to this heading"></a></h2>
+<p>Please note that all the lists are <em>exhaustive</em> meaning that I do not expect you to have completed every
+point on the checklist for the exam.</p>
+<section id="week-1">
+<h3>Week 1<a class="headerlink" href="#week-1" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>[x] Create a git repository</p></li>
+<li><p>[x] Make sure that all team members have write access to the github repository</p></li>
+<li><p>[x] Create a dedicated environment for you project to keep track of your packages</p></li>
+<li><p>[x] Create the initial file structure using cookiecutter</p></li>
+<li><p>[x] Fill out the make_dataset.py file such that it downloads whatever data you need and</p></li>
+<li><p>[x] Add a model file and a training script and get that running</p></li>
+<li><p>[x] Remember to fill out the requirements.txt file with whatever dependencies that you are using</p></li>
+<li><p>[x] Remember to comply with good coding practices (pep8) while doing the project</p></li>
+<li><p>[x] Do a bit of code typing and remember to document essential parts of your code</p></li>
+<li><p>[x] Setup version control for your data or part of your data</p></li>
+<li><p>[x] Construct one or multiple docker files for your code</p></li>
+<li><p>[x] Build the docker files locally and make sure they work as intended</p></li>
+<li><p>[x] Write one or multiple configurations files for your experiments</p></li>
+<li><p>[x] Used Hydra to load the configurations and manage your hyperparameters</p></li>
+<li><p>[x] When you have something that works somewhat, remember at some point to to some profiling and see if you can optimize your code</p></li>
+<li><p>[x] Use Weights &amp; Biases to log training progress and other important metrics/artifacts in your code. Additionally, consider running a hyperparameter optimization sweep.</p></li>
+<li><p>[x] Use Pytorch-lightning (if applicable) to reduce the amount of boilerplate in your code</p></li>
+</ul>
+</section>
+<section id="week-2">
+<h3>Week 2<a class="headerlink" href="#week-2" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>[x] Write unit tests related to the data part of your code</p></li>
+<li><p>[x] Write unit tests related to model construction and or model training</p></li>
+<li><p>[x] Calculate the coverage.</p></li>
+<li><p>[x] Get some continuous integration running on the github repository</p></li>
+<li><p>[x] Create a data storage in GCP Bucket for you data and preferable link this with your data version control setup</p></li>
+<li><p>[x] Create a trigger workflow for automatically building your docker images</p></li>
+<li><p>[x] Get your model training in GCP using either the Engine or Vertex AI</p></li>
+<li><p>[x] Create a FastAPI application that can do inference using your model</p></li>
+<li><p>[x] If applicable, consider deploying the model locally using torchserve</p></li>
+<li><p>[x] Deploy your model in GCP using either Functions or Run as the backend</p></li>
+</ul>
+</section>
+<section id="week-3">
+<h3>Week 3<a class="headerlink" href="#week-3" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>[x] Check how robust your model is towards data drifting</p></li>
+<li><p>[x] Setup monitoring for the system telemetry of your deployed model</p></li>
+<li><p>[x] Setup monitoring for the performance of your deployed model</p></li>
+<li><p>[x] If applicable, play around with distributed data loading</p></li>
+<li><p>[x] If applicable, play around with distributed model training</p></li>
+<li><p>[x] Play around with quantization, compilation and pruning for you trained models to increase inference speed</p></li>
+</ul>
+</section>
+<section id="additional">
+<h3>Additional<a class="headerlink" href="#additional" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>[ ] Revisit your initial project description. Did the project turn out as you wanted?</p></li>
+<li><p>[ ] Make sure all group members have a understanding about all parts of the project</p></li>
+<li><p>[ ] Uploaded all your code to github</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Xindi Wu.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

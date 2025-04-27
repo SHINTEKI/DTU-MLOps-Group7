@@ -1,0 +1,13 @@
+DTU-MLOps-Group7
+================
+
+.. toctree::
+   :maxdepth: 4
+
+   app
+   conf
+   get-pip
+   setup
+   src
+   test_environment
+   tests

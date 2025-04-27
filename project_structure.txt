@@ -59,12 +59,6 @@
 │   ├── index.rst
 │   └── make.bat
 ├── entrypoint.sh
-├── jobscript.sh
-├── logs
-│   └── exp4
-│       └── wandb
-├── model_store
-│   └── resnest_model.mar
 ├── models
 │   ├── deployable_model.pt
 │   └── exp4
