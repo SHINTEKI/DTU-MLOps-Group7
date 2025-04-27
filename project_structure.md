@@ -1,0 +1,78 @@
+## Project Organization
+```text
+├── LICENSE
+├── Makefile                <- Makefile with commands like `make train`.
+├── README.md               <- The top-level README for developers using this project.
+├── setup.py                <- makes project pip installable (pip install -e .) so src can be imported.
+├── tox.ini
+├── requirements.txt        <- The requirements file for reproducing the analysis environment.
+├── requirements_tests.txt
+├── conf                    <- The overall configurations for the project.
+│   ├── __init__.py
+│   ├── config.yaml
+│   ├── data                <- Configurations for dataset.
+│   │   └── imagenet-mini.yaml
+│   ├── experiment          <- Configurations for training.
+│   │   └── exp1.yaml
+│   ├── predict.yaml
+│   └── sweep.yaml
+├── src                     <- Source code for use in this project.
+│   ├── __init__.py
+│   ├── data                <- Scripts to download or generate data.
+│   │   ├── __init__.py
+│   │   └── make_dataset.py
+│   └── models              <- Scripts to train models and then use trained models to make predictions.
+│       ├── __init__.py
+│       ├── model.py
+│       ├── predict_model.py
+│       ├── script_model.py
+│       └── train_model.py
+├── tests                   <- Unit tests code for dataset and models.
+│   ├── __init__.py
+│   ├── test_data.py
+│   └── test_model.py
+├── app                     <- A self-contained fastapi to do inference.
+│   ├── __init__.py
+│   ├── cloud_deployment.py
+│   ├── cloud_function.py
+│   ├── index_to_name.json
+│   ├── predict_image.py
+│   └── requirements.txt
+├── data
+│   ├── processed           <- The final, canonical data sets for modeling.
+│   │   ├── train_dataset.pt
+│   │   └── val_dataset.pt
+│   └── raw                 <- The original, immutable data dump.
+│       └── imagenet-mini
+├── data.dvc                <- dvc tracking for the data folder.
+├── models                  <- Trained and serialized models.
+│   ├── deployable_model.pt
+│   └── exp4
+│       └── epoch=03-val_accuracy=0.5455.ckpt
+├── models.dvc              <- dvc tracking for the models folder.
+├── trainer.dockerfile      <- dockerfile for the training process.
+├── prediction.dockerfile   <- dockerfile for the prediction process.
+├── entrypoint.sh
+├── cloudbuild.yaml
+├── cml.yaml
+├── codecov.yml
+├── docs                    <- sphinx documentation of the project's codebase.
+├── profiles
+│   └── exp4
+└── wandb                   <- wandb log for each experiment(training) and hyperparameter sweeping.
+    ├── run-20250425_003418-9mldez9v
+    │   ├── files
+    │   ├── logs
+    │   ├── run-9mldez9v.wandb
+    │   └── tmp
+    └── sweep-rwh3k86x
+        └── config-3f06mlo8.yaml
+```
+
+
+
+
+
+
+
+

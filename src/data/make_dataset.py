@@ -22,7 +22,7 @@ class DataModule(pl.LightningDataModule):
         self.val_dir = os.path.join(base_path, "val")
 
         self.batch_size = config.experiment.batch_size
-        self.threads = 0  # 💡太大会内存爆炸
+        self.threads = 0  
 
         self.train_transform = transforms.Compose(
             [
