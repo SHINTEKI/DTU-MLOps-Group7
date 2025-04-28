@@ -10,12 +10,13 @@ RUN apt update && \
 
 COPY requirements.txt requirements.txt
 COPY setup.py setup.py
+COPY src/ src/
 
 RUN pip install --default-timeout=300 --no-cache-dir --upgrade -r requirements.txt 
 
 
 COPY models/deployable_model.pt models/deployable_model.pt
-COPY src/ src/
+
 COPY conf/ conf/
 COPY app/ app/
 
