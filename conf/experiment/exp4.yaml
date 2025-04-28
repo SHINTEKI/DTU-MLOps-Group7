@@ -7,7 +7,7 @@ device: auto
 accelerator: auto
 
 batch_size: 2
-max_epochs: 6
+max_epochs: 60
 max_steps: -1
 val_check_interval: 0.5
 num_sanity: 0
@@ -27,7 +27,8 @@ es_patience: 20
 
 log_freq: 20
 check_every_n_epoch: 1
-
+ 
 criterion: NLLLoss
 optimizer: SGD
 scheduler: ReduceLROnPlateau
+ 

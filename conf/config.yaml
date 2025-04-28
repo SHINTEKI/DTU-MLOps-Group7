@@ -20,3 +20,4 @@ wandb:
   project: "mlops-project"
   log_model: True
   log_freq: 20
+ 
