@@ -3,4 +3,5 @@ coverage
 flake8
 isort
 mypy
+black
 ruff==0.11.7
